@@ -3,57 +3,59 @@ package ru.netology.stats;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class salesCalculateTest {
+public class SalesCalculateTest {
 
     @Test
     void minMonthTest() {
-        salesCalculate service = new salesCalculate();
+        SalesCalculate service = new SalesCalculate();
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 9;
         long actual = service.minSales(sales);
         Assertions.assertEquals(expected, actual);
     }
 
-@Test
-    void maxMonthTest(){
-        salesCalculate service = new salesCalculate();
+    @Test
+    void maxMonthTest() {
+        SalesCalculate service = new SalesCalculate();
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 8;
         long actual = service.maxSales(sales);
         Assertions.assertEquals(expected, actual);
     }
-@Test
+
+    @Test
     void summaryTest() {
-        salesCalculate service = new salesCalculate();
+        SalesCalculate service = new SalesCalculate();
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 180;
-        int actual = service.summary(sales);
-        Assertions.assertEquals(expected, actual);
-    }
-@Test
-    void averageSalesTest(){
-        salesCalculate service = new salesCalculate();
-        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 15;
-        int actual = service.averageSalesValue(sales);
+        long expected = 180;
+        long actual = service.summary(sales);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    void monthsSalesOverAverageTest(){
-        salesCalculate service = new salesCalculate();
+    void averageSalesTest() {
+        SalesCalculate service = new SalesCalculate();
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 5;
-        int actual = service.monthsSalesOverAverage(sales);
+        long expected = 15;
+        long actual = service.averageSalesValue(sales);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    void monthsSalesUnderAverageTest(){
-        salesCalculate service = new salesCalculate();
+    void monthsSalesOverAverageTest() {
+        SalesCalculate service = new SalesCalculate();
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 5;
-        int actual = service.monthsSalesUnderAverage(sales);
+        long expected = 5;
+        long actual = service.monthsSalesOverAverage(sales);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void monthsSalesUnderAverageTest() {
+        SalesCalculate service = new SalesCalculate();
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expected = 5;
+        long actual = service.monthsSalesUnderAverage(sales);
         Assertions.assertEquals(expected, actual);
     }
 }

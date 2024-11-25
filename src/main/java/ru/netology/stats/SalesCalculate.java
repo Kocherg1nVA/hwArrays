@@ -1,6 +1,6 @@
 package ru.netology.stats;
 
-public class salesCalculate {
+public class SalesCalculate {
 
 
     public int minSales(long[] sales) {
@@ -28,44 +28,47 @@ public class salesCalculate {
     }
 
     public int summary(long[] sales) {
-        int sum = 0;
+        long sum = 0;
+
         for (int i = 0; i < sales.length; i++) {
             sum += sales[i]; // суммируем количество продаж за каждый месяц
         }
-        return sum;
+        return (int) sum;
     }
 
     public int averageSalesValue(long[] sales) {
-        salesCalculate service = new salesCalculate(); // создаем объект класса
-        int average = service.summary(sales) / sales.length; // вызываем метод summary и
+
+        long sum = summary(sales);
+        long average = sum / sales.length; // вызываем метод summary и
         // рассчитываем среднее арифметическое значение продаж за все месяцы
-        return average;
+        return (int) average;
     }
 
     public int monthsSalesOverAverage(long[] sales) {
-        int count = 0; // счетчик месяцев, количество продаж в которых больше, чем среднее значение за год
+        long count = 0; // счетчик месяцев, количество продаж в которых больше, чем среднее значение за год
+        long average = averageSalesValue(sales); // среднее значение продаж за год
+
         for (int i = 0; i < sales.length; i++) {
-            salesCalculate service = new salesCalculate(); // создаем объект класса
-            if (sales[i] > service.averageSalesValue(sales)) { //вызываем метод averageSalesValue и сравниваем
-                // со значениями продаж в каждом месяце
+
+            if (sales[i] > average) { // сравниваем среднее значение со значениями продаж в каждом месяце
                 count++; // суммируем количество месяцев, продажи в которых больше среднего за год
             }
         }
-        return count;
+        return (int) count;
     }
 
     public int monthsSalesUnderAverage(long[] sales) {
-        int count = 0; // счетчик месяцев, количество продаж в которых меньше, чем среднее значение за год
+        long count = 0; // счетчик месяцев, количество продаж в которых меньше, чем среднее значение за год
+        long average = averageSalesValue(sales); // среднее значение продаж за год
+
         for (int i = 0; i < sales.length; i++) {
-            salesCalculate service = new salesCalculate(); // создаем объект класса
-            if (sales[i] < service.averageSalesValue(sales)) { //вызываем метод averageSalesValue и сравниваем
-                // со значениями продаж в каждом месяце
+
+            if (sales[i] < average) { //сравниваем среднее значение со значениями продаж в каждом месяце
                 count++; // суммируем количество месяцев, продажи в которых меньше среднего за год
             }
         }
-        return count;
+        return (int) count;
     }
-
 }
 
 
