@@ -11,7 +11,6 @@ public class SalesCalculate {
                 minMonth = i; // запомним его как минимальный
             }
         }
-
         return minMonth + 1; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
     }
 
@@ -23,7 +22,6 @@ public class SalesCalculate {
                 maxMonth = i; // запомним его как максимальный
             }
         }
-
         return maxMonth + 1;
     }
 
